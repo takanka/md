@@ -13,7 +13,7 @@ https://mikrotik.com/product/crs354_48g_4splus2qplusrm
         - 10G SFP+ 4Port
         - 40G QSFP+ 2Port
 
-[PoE付きのモデル]{https://mikrotik.com/product/crs354_48p_4s_2q_rm}もあるけど必要としていないのでPoEなしの方で。
+[PoE付きのモデル]{https://mikrotik.com/product/crs354_48p_4s_2q_rm} もあるけど必要としていないのでPoEなしの方で。
 
 [EuroDK](https://www.eurodk.com/en/products/mikrotik)から輸入。
 
@@ -33,17 +33,17 @@ InterfaceをDown/Upすれば治るのでこれは相性と割り切っている�
 
 ## 静穏化に必要な措置
 - 標準の3つのFANを交換
-    - 各所で実績のある[NF-A4x20 FLX]{https://noctua.at/en/nf-a4x20-flx}
-    - [NF-A4x20 PWM]{https://noctua.at/en/nf-a4x20-pwm}でもいいのでは？と思ってはいけない
+    - 各所で実績のある[NF-A4x20 FLX](https://noctua.at/en/nf-a4x20-flx)
+    - [NF-A4x20 PWM](https://noctua.at/en/nf-a4x20-pwm)でもいいのでは？と思ってはいけない
         - PWMの方は一定の電圧になると回転数が0になってFAN Errorを検出する。おそらくFAN1-3はPWMでコントロールされていない
         - FAN4だけはうまく動いてくれるようには見える
-        - 実用上問題になるかというと63℃になってファンが回り50℃くらいで止まる(そして標準だとFAN Errorランプが点灯する)、を繰り返す程度なので
+        - 実用上問題になるかというと63℃になってファンが回り50℃くらいで止まる(そして標準だとFAN Errorランプが点灯する)、を繰り返す程度なので問題にはならない
 
 - CPUの近くに4つめのFANを追加
     - NF-A4x20でもいいんだけど10mmの方が付けやすい。スペース上の問題。
-    - [N-FSTY-SMG]{http://www.nagao-ss.co.jp/original53.html}で固定。FAN cableの長さが少し足りないけどNoctuaなら箱に延長があるので大丈夫
+    - [N-FSTY-SMG](http://www.nagao-ss.co.jp/original53.html)で固定。FAN cableの長さが少し足りないけどNoctuaなら箱に延長があるので大丈夫
 
 - CPUの上にサーマルパッドを置く
-    - [TG-MP8-120-20-30-1R]{https://www.shinwa-sangyo.co.jp/products/thermal-sheet/tg-mp8-120-20-30-1r}を4等分して重ねるとちょうど天板に張り付くくらいの厚みになる。
+    - [TG-MP8-120-20-30-1R](https://www.shinwa-sangyo.co.jp/products/thermal-sheet/tg-mp8-120-20-30-1r)を4等分して重ねるとちょうど天板に張り付くくらいの厚みになる。
 
 ここまですると個人的には寝室に置いてても我慢できるレベルになった

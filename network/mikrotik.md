@@ -63,6 +63,7 @@ VLAN 1000 / GW 192.168.0.1/24なNWに追加する場合。
 
 レビューは https://www.servethehome.com/mikrotik-crs354-48g-4s-2q-rm-review/ 辺りを参考にするといい
 
+- なにがすごいか
     - いろいろ込みで約$500とやすいのに高収容
         - GbE 48Port
         - 10G SFP+ 4Port
@@ -70,12 +71,12 @@ VLAN 1000 / GW 192.168.0.1/24なNWに追加する場合。
 
 [PoE付きのモデル](https://mikrotik.com/product/crs354_48p_4s_2q_rm)もあるけど必要としていないのでPoEなしの方で。
 
-[EuroDK](https://www.eurodk.com/en/products/mikrotik)から輸入。
+[EuroDK](https://www.eurodk.com/en/products/mikrotik)から2台輸入。
 
 ## SFPなど
-おそらくどこのSFP/QSFPでも動きそう。ロックはされてなさそう
+おそらくどこのSFP/QSFPでも動きそう。ベンダーロックはされてなさそう
 
-CRS354間の接続についてはfs.comの汎用QSFP+で今のところちゃんと動作している。買ったのは[このへん](https://www.fs.com/jp/products/74591.html?attribute=1696)
+CRS354間の接続についてはfs.comの汎用QSFP+なAOCで今のところちゃんと動作している。買ったのは[このへん](https://www.fs.com/jp/products/74591.html?attribute=1696)
 
 こんな感じに認識される
 ```
@@ -130,8 +131,32 @@ InterfaceをDown/Upすれば治るのでこれは相性と割り切っている�
 - CPUの近くに4つめのFANを追加
     - NF-A4x20でもいいんだけど10mmの方が付けやすい、たぶん。スペースがなさすぎる
     - [N-FSTY-SMG](http://www.nagao-ss.co.jp/original53.html)で固定。FAN cableの長さが少し足りないけどNoctuaなら箱に延長ケーブルがあるので大丈夫
+        - これ自身は2個1セットになっているけど20mmのFANをつけるなら片方だけしか実質つけられないので20mmつけるなら1セットで2台分まかなえる
 
 - CPUの上にサーマルパッドを置く
     - [TG-MP8-120-20-30-1R](https://www.shinwa-sangyo.co.jp/products/thermal-sheet/tg-mp8-120-20-30-1r)を4等分して重ねるとちょうど天板に張り付くくらいの厚みになる。
 
 ここまですると個人的には寝室に置いてても我慢できるレベルになった。部品交換してるから保証は無くなるけどそもそも安いし壊れたら買い替えくらいの気持ちで使うのが吉
+
+## 結局いくらかかる？
+EuroDKは他にいろんなものをつけた結果合計で$1,000くらいになったので金額は参考程度に。
+
+| 型名 | 購入場所 | 個数 | 合計金額 |
+| --- | --- | --- | --- |
+| CRS354 | EuroDK | 2 | $763 |
+| Power cord US C13 | EuroDK | 4 | $4 |
+| Transport | EuroDK | 1 | $98 |
+| Insurance(保険つけた) | EuroDK | 1 | $10 |
+| Bank fees(Paypal手数料?) | EuroDK | 1 | $41 |
+| FedEx(関税) | - | 1 | ¥12,000 |
+| N-FSTY-SMG(結果1つでよかった) | ヨドバシ | 2 | ¥1,834 |
+| NF-A4x20 FLX | PCワンズ | 4 | ¥7,120 |
+| NF-A4x20 PWM | PCワンズ | 4 | ¥7,120 |
+| TG-MP8-120-20-30-1R | PCワンズ | 2 | ¥4,280 |
+
+EuroDKで$916+¥12,000 -> ¥112,000($1 = ¥110として計算)
+その他の静穏化グッズで¥20,000
+
+大体1台7万とみればよさそう。
+
+AmazonJPでも2台買った場合は¥52,183*2+¥6155 = ¥110,521なので大して変わらないはず。どっちにしろ同じEuroDKだし。

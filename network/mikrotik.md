@@ -64,7 +64,7 @@ VLAN 1000 / GW 192.168.0.1/24なNWに追加する場合。
 レビューは https://www.servethehome.com/mikrotik-crs354-48g-4s-2q-rm-review/ 辺りを参考にするといい
 
 - なにがすごいか
-    - いろいろ込みで約$500とやすいのに高収容
+    - いろいろ込みで約$600とやすいのに高収容
         - GbE 48Port
         - 10G SFP+ 4Port
         - 40G QSFP+ 2Port
@@ -80,7 +80,7 @@ CRS354間の接続についてはfs.comの汎用QSFP+なAOCで今のところち
 
 こんな感じに認識される
 ```
->/interface ethernet monitor qsfpplus2-1
+> /interface ethernet monitor qsfpplus2-1
                       name: qsfpplus2-1
                     status: link-ok
           auto-negotiation: done

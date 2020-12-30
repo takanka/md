@@ -3,6 +3,61 @@ Mikrotikにかんするメモ
 # 設定回り
 Cisco慣れしている人はかなり勝手が違うのでつらい(体験談)
 
+## 基本
+rootからコマンドを順に追っていく形。Ciscoのような`show int`ではなく`int ether print`となるように、ある意味Ciscoと逆にshowが最後に来るイメージ。
+
+L2で動かすときはbridgeというグループ(?)に各interfaceをつなげるような形になる模様。
+![Diagram](https://i.mt.lv/cdn/product_files/CRS354-48G-4Splus2Qplus_200122.png)
+[公式](https://mikrotik.com/product/crs354_48g_4splus2qplusrm)のDiagram見てもわかるようにMarvellのchipの中で閉じないとCPUとの帯域が1Gbpsなのですっごい遅くなる。
+(というのを誰かが書いていたのであとでそれをメモっておこう)
+
+[えらいひと](https://www.rb-ug.jp/blog/2674.html)が言ってる通りRouterOSはL3動作もできなくはないけどそういうもんじゃないのでL2はちゃんとL2で使う、L3で使いたかったらルーターを買う
+
+### findを使った指定
+Ciscoでポートにaccess vlanふるときはこんな感じだけど
+```
+int Gi 0/1
+switchport mode access
+switchport access vlan 1000
+```
+
+mikrotikの場合はfindでいちいち調べないといけない。そこが少し面倒
+```
+/interface bridge port set bridge=xxxx [find interface=ether1] pvid=1000
+```
+ちなみに下記と同じような指定になる。普通ならether1は#0のため
+```
+/interface bridge port set bridge=xxxx 0 pvid=1000
+```
+
+### 個人的によく使うコマンド
+- いわゆる`show mac address-table`。bridgeでしか動かしていない前提。
+```
+interface bridge host print
+```
+- Link Speedを確認する時
+```
+interface ethernet monitor ether1
+```
+
+
+## 初期設定
+VLAN 1000 / GW 192.168.0.1/24なNWに追加する場合。
+
+結局Ciscoでいう`int vlan`の設定がよくわからなかったのでbridgeそのものにIPを振っている。あとはNTPとかDNSとか基本的な設定
+
+```
+/interface bridge set name=bridge pvid=1000 vlan-filtering=yes
+/ip address set 0 address=192.168.0.2/24 interface=bridge
+
+/system clock set time-zone-autodetect=no time-zone-name=Asia/Tokyo
+/system ntp client set enabled=yes primary-ntp=192.168.0.1
+/ip route add distance=1 gateway=192.168.0.1
+/ip dns set servers=192.168.0.1
+/system package update set channel=long-term
+```
+
+
 # CRS354-48G-4S+2Q+RM
 公式： https://mikrotik.com/product/crs354_48g_4splus2qplusrm
 
@@ -16,6 +71,40 @@ Cisco慣れしている人はかなり勝手が違うのでつらい(体験談)
 [PoE付きのモデル](https://mikrotik.com/product/crs354_48p_4s_2q_rm)もあるけど必要としていないのでPoEなしの方で。
 
 [EuroDK](https://www.eurodk.com/en/products/mikrotik)から輸入。
+
+## SFPなど
+おそらくどこのSFP/QSFPでも動きそう。ロックはされてなさそう
+
+CRS354間の接続についてはfs.comの汎用QSFP+で今のところちゃんと動作している。買ったのは[このへん](https://www.fs.com/jp/products/74591.html?attribute=1696)
+
+こんな感じに認識される
+```
+>/interface ethernet monitor qsfpplus2-1
+                      name: qsfpplus2-1
+                    status: link-ok
+          auto-negotiation: done
+                      rate: 40Gbps
+               full-duplex: yes
+           tx-flow-control: no
+           rx-flow-control: no
+               advertising: 
+  link-partner-advertising: 
+        sfp-module-present: yes
+                  sfp-type: QSFP+
+        sfp-connector-type: optical-pigtail
+    sfp-link-length-copper: 10m
+           sfp-vendor-name: FS
+    sfp-vendor-part-number: QSFP-AO10
+       sfp-vendor-revision: xxxx
+         sfp-vendor-serial: xxxxxx
+    sfp-manufacturing-date: YY-MM-DD
+            sfp-wavelength: 850nm
+           sfp-temperature: 28C
+        sfp-supply-voltage: 3.259V
+       sfp-tx-bias-current: 5mA
+              sfp-tx-power: 0.233dBm
+              sfp-rx-power: -5.083dBm
+```
 
 ## qnap TS-453 Proとの相性(?)
 ケーブル抜き差しのあと、L2ではLinkUPしていそうなんだけどパケットが通らないという事象が発生している。
@@ -39,10 +128,10 @@ InterfaceをDown/Upすれば治るのでこれは相性と割り切っている�
         - 実用上問題になるかというと63℃くらいになってファンが回り50℃くらいで止まる(そして標準だとFAN Errorランプが点灯する)を繰り返す程度なので問題にはならない。気分は良くない。
 
 - CPUの近くに4つめのFANを追加
-    - NF-A4x20でもいいんだけど10mmの方が付けやすい。スペース上の問題。
+    - NF-A4x20でもいいんだけど10mmの方が付けやすい、たぶん。スペースがなさすぎる
     - [N-FSTY-SMG](http://www.nagao-ss.co.jp/original53.html)で固定。FAN cableの長さが少し足りないけどNoctuaなら箱に延長ケーブルがあるので大丈夫
 
 - CPUの上にサーマルパッドを置く
     - [TG-MP8-120-20-30-1R](https://www.shinwa-sangyo.co.jp/products/thermal-sheet/tg-mp8-120-20-30-1r)を4等分して重ねるとちょうど天板に張り付くくらいの厚みになる。
 
-ここまですると個人的には寝室に置いてても我慢できるレベルになった
+ここまですると個人的には寝室に置いてても我慢できるレベルになった。部品交換してるから保証は無くなるけどそもそも安いし壊れたら買い替えくらいの気持ちで使うのが吉

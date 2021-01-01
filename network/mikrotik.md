@@ -7,9 +7,18 @@ Cisco慣れしている人はかなり勝手が違うのでつらい(体験談)
 rootからコマンドを順に追っていく形。Ciscoのような`show int`ではなく`int ether print`となるように、ある意味Ciscoと逆にshowが最後に来るイメージ。
 
 L2で動かすときはbridgeというグループ(?)に各interfaceをつなげるような形になる模様。
-![Diagram](https://i.mt.lv/cdn/product_files/CRS354-48G-4Splus2Qplus_200122.png)
-[公式](https://mikrotik.com/product/crs354_48g_4splus2qplusrm)のDiagram見てもわかるようにMarvellのchipの中で閉じないとCPUとの帯域が1Gbpsなのですっごい遅くなる。
-(というのを誰かが書いていたのであとでそれをメモっておこう)
+
+Serial設定で普通じゃないのは115200とRTS/CTSくらい
+```
+Default settings of the router's serial port are 
+115200 bits/s (for x86 default is 9600 bits/s),
+8 data bits,
+1 stop bit,
+no parity,
+hardware (RTS/CTS) flow control. 
+```
+ソースは[公式](https://help.mikrotik.com/docs/display/ROS/Serial+Console)
+
 
 [えらいひと](https://www.rb-ug.jp/blog/2674.html)が言ってる通りRouterOSはL3動作もできなくはないけどそういうもんじゃないのでL2はちゃんとL2で使う、L3で使いたかったらルーターを買う
 
@@ -39,7 +48,6 @@ interface bridge host print
 ```
 interface ethernet monitor ether1
 ```
-
 
 ## 初期設定
 VLAN 1000 / GW 192.168.0.1/24なNWに追加する場合。
@@ -73,10 +81,14 @@ VLAN 1000 / GW 192.168.0.1/24なNWに追加する場合。
 
 [EuroDK](https://www.eurodk.com/en/products/mikrotik)から2台輸入。
 
+![Diagram](https://i.mt.lv/cdn/product_files/CRS354-48G-4Splus2Qplus_200122.png)
+[公式](https://mikrotik.com/product/crs354_48g_4splus2qplusrm)のDiagram見てもわかるようにMarvellのchipの中で閉じないとCPUとの帯域が1Gbpsなのですっごい遅くなる。
+(というのを誰かが書いていたのであとでそれをメモっておこう)
+
 ## SFPなど
 おそらくどこのSFP/QSFPでも動きそう。ベンダーロックはされてなさそう
 
-CRS354間の接続についてはfs.comの汎用QSFP+なAOCで今のところちゃんと動作している。買ったのは[このへん](https://www.fs.com/jp/products/74591.html?attribute=1696)
+CRS354 2台の間の接続についてはfs.comの汎用QSFP+なAOCで今のところちゃんと動作している。買ったのは[このへん](https://www.fs.com/jp/products/74591.html?attribute=1696)
 
 こんな感じに認識される
 ```
@@ -142,7 +154,7 @@ InterfaceをDown/Upすれば治るのでこれは相性と割り切っている�
 EuroDKは他にいろんなものをつけた結果合計で$1,000くらいになったので金額は参考程度に。
 
 | 型名 | 購入場所 | 個数 | 合計金額 |
-| --- | --- | --- | --- |
+| :--- | :---: | :---: | ---: |
 | CRS354 | EuroDK | 2 | $763 |
 | Power cord US C13 | EuroDK | 4 | $4 |
 | Transport | EuroDK | 1 | $98 |

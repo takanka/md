@@ -94,19 +94,19 @@ Host a
     squid.confはいちおうlocalnetからインターネットへの転送はしないように
     dstlocalを定義してhttp_accessのlocalnetの部分を書き換えて宛先制限する
 ```
-# yum -y install squid
-# vi /etc/squid/squid.conf
-27,28d26
-< acl dstlocal dst 192.168.0.0/24
-<
-54c52
-< http_access allow localnet dstlocal
----
-> http_access allow localnet
-
-# systemctl start squid
-# systemctl status squid
-# systemctl enable squid
+ # yum -y install squid
+ # vi /etc/squid/squid.conf
+ 27,28d26
+ < acl dstlocal dst 192.168.0.0/24
+ <
+ 54c52
+ < http_access allow localnet dstlocal
+ ---
+ > http_access allow localnet
+ 
+ # systemctl start squid
+ # systemctl status squid
+ # systemctl enable squid
 ```
 
 これで`ssh a`したあとにchromeでvmrcのリンクを開くと無事繋がるはず  

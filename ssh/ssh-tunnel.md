@@ -16,12 +16,12 @@ SSH port forwardを組み合わせて使う。中間サーバーをどこかに�
 ```
 
 - PC側
-    ```
-    Host a
-    Hostname x.x.x.x
-    Port xxxx
-    LocalForward 10000 127.0.0.1:10000
-    ```
+```
+Host a
+Hostname x.x.x.x
+Port xxxx
+LocalForward 10000 127.0.0.1:10000
+```
 - おうちサーバー側
     - 事前対応
     パスなしのSSH keyを作って中間サーバーのauthorized_keysに入れておく

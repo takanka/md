@@ -16,29 +16,29 @@ SSH port forwardを組み合わせて使う。中間サーバーをどこかに�
 ```
 
 - PC側
-```
-Host a
-Hostname x.x.x.x
-Port xxxx
-LocalForward 10000 127.0.0.1:10000
-```
+    ```
+    Host a
+    Hostname x.x.x.x
+    Port xxxx
+    LocalForward 10000 127.0.0.1:10000
+    ```
 - おうちサーバー側
     - 事前対応
     パスなしのSSH keyを作って中間サーバーのauthorized_keysに入れておく
     - .ssh/config
-```
-Host a
-  Hostname x.x.x.x
-  Port xxxx
-  RemoteForward 10000 127.0.0.1:22
-  ExitOnForwardFailure yes
-```
+    ```
+    Host a
+    Hostname x.x.x.x
+    Port xxxx
+    RemoteForward 10000 127.0.0.1:22
+    ExitOnForwardFailure yes
+    ```
     - このshellをcronでまわす
-```
-# /bin/bash
-COMMAND="ssh -N -f a"
-pgrep -f -x "$COMMAND" > /dev/null 2>&1 || $COMMAND > /dev/null 2>&1
-```
+    ```
+    # /bin/bash
+    COMMAND="ssh -N -f a"
+    pgrep -f -x "$COMMAND" > /dev/null 2>&1 || $COMMAND > /dev/null 2>&1
+    ```
 
 こうすることでPC側で`ssh a`したあと`ssh 127.0.0.1:10000`で中間サーバーのport10000を経由しておうちサーバーのprt22に繋がる。
 
@@ -65,12 +65,12 @@ ESXiは192.168.0.0/24にある前提
 - PC
     - ssh
     仕上がりローカルの3128にフォワード
-```
-Host a
-Hostname x.x.x.x
-Port xxxx
-LocalForward 3128 127.0.0.1:13128
-```
+    ```
+    Host a
+    Hostname x.x.x.x
+    Port xxxx
+    LocalForward 3128 127.0.0.1:13128
+    ```
     - VMRC  
     接続プロキシの設定を変更  
     リモート仮想マシンの接続プロキシを有効化にチェック  
@@ -90,7 +90,7 @@ LocalForward 3128 127.0.0.1:13128
       ExitOnForwardFailure yes
     ```
     - squid
-    squidを入れて設定。以下はCentOS7の場合。  
+    squidを入れて設定。
     squid.confはいちおうlocalnetからインターネットへの転送はしないように
     dstlocalを定義してhttp_accessのlocalnetの部分を書き換えて宛先制限する  
     ```

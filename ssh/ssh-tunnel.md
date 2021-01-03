@@ -81,6 +81,7 @@ LocalForward 3128 127.0.0.1:13128
 - おうちサーバー
     - squid
     squidを入れて設定。以下はCentOS7の場合
+    
 ```
 # yum -y install squid
 

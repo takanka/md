@@ -82,33 +82,27 @@ LocalForward 3128 127.0.0.1:13128
 - おうちサーバー
     - .ssh/config  
     フォワード先を変える
-```
-Host a
-  Hostname x.x.x.x
-  Port xxxx
-  RemoteForward 13128 127.0.0.1:3128
-  ExitOnForwardFailure yes
-```
+    ```
+    Host a
+      Hostname x.x.x.x
+      Port xxxx
+      RemoteForward 13128 127.0.0.1:3128
+      ExitOnForwardFailure yes
+    ```
     - squid
     squidを入れて設定。以下はCentOS7の場合。  
     squid.confはいちおうlocalnetからインターネットへの転送はしないように
-    dstlocalを定義してhttp_accessのlocalnetの部分を書き換えて宛先制限する
-
-```
- # yum -y install squid
- # vi /etc/squid/squid.conf
- 27,28d26
- < acl dstlocal dst 192.168.0.0/24
- <
- 54c52
- < http_access allow localnet dstlocal
- ---
- > http_access allow localnet
- 
- # systemctl start squid
- # systemctl status squid
- # systemctl enable squid
-```
+    dstlocalを定義してhttp_accessのlocalnetの部分を書き換えて宛先制限する  
+    ```
+    > diff /etc/squid/squid.conf /etc/squid.squid.conf.default
+    27,28d26
+    < acl dstlocal dst 192.168.0.0/24
+    <
+    54c52
+    < http_access allow localnet dstlocal
+    ---
+    > http_access allow localnet
+    ```
 
 これで`ssh a`したあとにchromeでvmrcのリンクを開くと無事繋がるはず  
 

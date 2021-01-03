@@ -80,13 +80,22 @@ LocalForward 3128 127.0.0.1:13128
     指定するべきアドレスは`vmrc://root@192.168.0.x/?moid=xxx`。moidはESXiを開いて対象の仮想マシンを参照。[このへん参考](https://qiita.com/crowz/items/0e779c972300375f2c57)
 
 - おうちサーバー
+    - .ssh/config  
+    フォワード先を変える
+```
+Host a
+  Hostname x.x.x.x
+  Port xxxx
+  RemoteForward 13128 127.0.0.1:3128
+  ExitOnForwardFailure yes
+```
     - squid
-    squidを入れて設定。以下はCentOS7の場合  
-
+    squidを入れて設定。以下はCentOS7の場合
 ```
 # yum -y install squid
 # vi /etc/squid/squid.conf
-  下記のように書き換える。いちおうlocalnetからインターネットへの転送はしないようにdstlocalを定義してhttp_accessのlocalnetの部分を書き換えて宛先制限する
+  下記のように書き換える。いちおうlocalnetからインターネットへの転送はしないように
+  dstlocalを定義してhttp_accessのlocalnetの部分を書き換えて宛先制限する
 27,28d26
 < acl dstlocal dst 192.168.0.0/24
 <
@@ -98,17 +107,6 @@ LocalForward 3128 127.0.0.1:13128
 # systemctl start squid
 # systemctl status squid
 # systemctl enable squid
-```
-
-    - .ssh/config  
-    上記のフォワード先を変えるだけ。あくまでProxyのフォワード
-    
-```
-Host a
-  Hostname x.x.x.x
-  Port xxxx
-  RemoteForward 13128 127.0.0.1:3128
-  ExitOnForwardFailure yes
 ```
 
 これで`ssh a`したあとにchromeでvmrcのリンクを開くと無事繋がるはず  

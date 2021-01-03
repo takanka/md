@@ -93,6 +93,7 @@ Host a
     squidを入れて設定。以下はCentOS7の場合。  
     squid.confはいちおうlocalnetからインターネットへの転送はしないように
     dstlocalを定義してhttp_accessのlocalnetの部分を書き換えて宛先制限する
+
 ```
  # yum -y install squid
  # vi /etc/squid/squid.conf

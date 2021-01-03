@@ -71,16 +71,16 @@ Hostname x.x.x.x
 Port xxxx
 LocalForward 3128 127.0.0.1:13128
 ```
-    - VMRC
-    接続プロキシの設定を変更。  
+    - VMRC  
+    接続プロキシの設定を変更  
     リモート仮想マシンの接続プロキシを有効化にチェック  
     アドレスに127.0.0.1  
     ポートに3128
-    - chromeあたりにブックマーク
+    - chromeあたりにブックマーク  
     指定するべきアドレスは`vmrc://root@192.168.0.x/?moid=xxx`。moidはESXiを開いて対象の仮想マシンを参照。[このへん参考](https://qiita.com/crowz/items/0e779c972300375f2c57)
 - おうちサーバー
     - squid
-    squidを入れて設定。以下はCentOS7の場合
+    squidを入れて設定。以下はCentOS7の場合  
 ```
 # yum -y install squid
 
@@ -100,8 +100,8 @@ dstlocalを定義してhttp_accessのlocalnetの部分を書き換えて宛先�
 # systemctl status squid
 # systemctl enable squid
 ```
-    - .ssh/config
-    上記のフォワード先を変えるだけ。あくまでProxyのフォワード
+    - .ssh/config  
+    上記のフォワード先を変えるだけ。あくまでProxyのフォワード  
 ```
 Host a
   Hostname x.x.x.x
@@ -110,7 +110,7 @@ Host a
   ExitOnForwardFailure yes
 ```
 
-これで`ssh a`したあとにchromeでvmrcのリンクを開くと無事繋がるはず
+これで`ssh a`したあとにchromeでvmrcのリンクを開くと無事繋がるはず  
 ```
 vmrc
 - Proxy (

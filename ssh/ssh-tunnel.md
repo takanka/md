@@ -80,7 +80,7 @@ LocalForward 3128 127.0.0.1:13128
     指定するべきアドレスは`vmrc://root@192.168.0.x/?moid=xxx`。moidはESXiを開いて対象の仮想マシンを参照。[このへん参考](https://qiita.com/crowz/items/0e779c972300375f2c57)
 - おうちサーバー
     - squid
-    squidを入れて設定。以下はCentOS7の場合  
+    squidを入れて設定。以下はCentOS7の場合
 ```
 # yum -y install squid
 

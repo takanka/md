@@ -82,7 +82,7 @@ LocalForward 3128 127.0.0.1:13128
 - おうちサーバー
     - squid
     squidを入れて設定。以下はCentOS7の場合  
-    
+
 ```
 # yum -y install squid
 # vi /etc/squid/squid.conf
@@ -101,7 +101,8 @@ LocalForward 3128 127.0.0.1:13128
 ```
 
     - .ssh/config  
-    上記のフォワード先を変えるだけ。あくまでProxyのフォワード  
+    上記のフォワード先を変えるだけ。あくまでProxyのフォワード
+    
 ```
 Host a
   Hostname x.x.x.x

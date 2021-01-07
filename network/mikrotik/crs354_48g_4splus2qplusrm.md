@@ -53,23 +53,24 @@ CRS354 2台の間の接続についてはfs.comの汎用QSFP+なAOCで今のと�
 
 ## qnap TS-453 Proとの相性(?)
 ケーブル抜き差しのあと、L2ではLinkUPしていそうなんだけどパケットが通らないという事象が発生している。
-InterfaceをDown/Upすれば治るのでこれは相性と割り切っている。
+InterfaceをDown/Upすれば治るのでこれは相性と割り切り
 
 ## 音的な意味で気をつけること
-[ServerTheHome の Power Consumption and Noise のところ](https://www.servethehome.com/mikrotik-crs354-48g-4s-2q-rm-review/2/)では下記の通り電源を入れてすぐは静かになってトラフィックを流すと煩くなったとあるが、使ってみると動きとしては少し正確ではない
+[ServerTheHome の Power Consumption and Noise のところ](https://www.servethehome.com/mikrotik-crs354-48g-4s-2q-rm-review/2/)では下記の通り電源を入れてすぐは静かになってトラフィックを流すと煩くなったとあるが、使ってみると動きとしてはちょっと違いそう
 ```
-When we first plugged the switch in, the fans spun up, but then the switch fell silent. 
-That is a bit misleading. When we ran traffic, the fans ramped up quite a bit.
+When we first plugged the switch in, the fans spun up, 
+but then the switch fell silent. 
+That is a bit misleading. When we ran traffic, 
+the fans ramped up quite a bit.
 ```
-
 - 電源を入れた当初はCPU温度が高くないのでFANが止まる
 - なにもしなくてもCPU温度がすぐ上がるのでFANが回る
     - 見てる感じでは62℃くらいを超えると回る。アイドル状態でも温度は上がる
 - そのFANがうるさい(約5,000-6,000rpm)
     - 隣の部屋に置いてもファンの音が聞こえる
 - FANがまわってもCPU温度が下がらない
-    - 写真を見たらわかるけどFANからCPUまでの距離があるのでかなりの冷気を当てないとCPUは冷えない
-- 結果FANが回り続ける。うるさい
+    - [写真(左側のSFP+/QSFP+の下がCPU)](https://www.servethehome.com/mikrotik-crs354-48g-4s-2q-rm-review/mikrotik-crs354-48g-4s_2q_rm-internal-overview/)を見たらわかるけどFANからCPUまでの距離があるのでかなりの冷気を当てないとCPUは冷えない
+- 結果FANが回り続ける。すっごいうるさい
 
 ## 静穏化に必要な措置
 結局はCPU温度に比例して回転数が上がるっぽい動きをしているのでCPUを極力冷やしつつ、FANがまわっても煩くならないようにする必要がある
@@ -107,7 +108,7 @@ That is a bit misleading. When we ran traffic, the fans ramped up quite a bit.
 
 
 ## 結局いくらかかる？
-EuroDKは他にいろんなものをつけた結果合計で$1,000くらいになったので金額は参考程度に。
+EuroDKは他にいろんなものをつけた結果合計で$1,000くらいになったので金額は参考程度に
 
 | 型名 | 購入場所 | 個数 | 合計金額 |
 | :--- | :---: | :---: | ---: |

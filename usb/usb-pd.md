@@ -18,14 +18,16 @@ MacBook Proは[10Wでも充電できないこともないらしい](https://peli
 大体が9A/3Aの18Wあれば事足りそう
 
 ## 充電器
+
 | メーカー | 型番 | 価格 | Type-A | Type-C | 出力 |
 | :---: | :---: | ---: | ---: | ---: | ---: |
-| CIO | CIO-G100W3C1A | ¥7,678 | 1 | 3 | 100W|
+| CIO | CIO-G100W3C1A | ¥7,678 | 1 | 3 | 100W |
 
 - [CIO-G100W3C1A](https://connectinternationalone.co.jp/product/cio-g100w3c1a)  
     100W対応の充電器の中でType-Cが一番多いもののはず。利用中
 
 ## モバイルバッテリー
+
 | メーカー | 型番 | 価格 | Type-A | Type-C | 最大出力 |
 | :---: | :---: | ---: | ---: | ---: | ---: |
 | ZENDURE | SuperTank Pro | $248.99 | 0 | 4 | 100W |

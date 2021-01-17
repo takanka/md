@@ -1,4 +1,4 @@
-# 用途
+# PCをWi-FiのAPとして使う
 - ホテルやカフェでWi-Fi使いたいけど全部の保有機器で設定するのは面倒なのでノートPCをAPにして繋げられるようにしたい
 - Bluetoothテザリングはいちいち選択しないと繋がらない＋早くないのでWi-Fiでつなぎたい
 
@@ -14,5 +14,5 @@ Macbookでは本体内臓のアンテナでWi-Fiを受けてさらにAPとして
 - インターネット共有で追加したEthernetアダプタを元にWi-Fiのデバイスで[共有](https://support.apple.com/ja-jp/guide/mac-help/mchlp1540/mac)
     - 上記とは逆のWi-Fiから追加したEthernetアダプタに共有するパターンはできない模様
 
-## 課題
+## Macの課題
 - 追加したEthernetアダプタで802.1X認証を設定する方法がわからないので[Secured Wi-Fi](https://support.ntt.com/ocn/support/pid2900000c7s)が共有できない

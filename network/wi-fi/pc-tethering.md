@@ -6,7 +6,7 @@
 - [記事](https://xtech.nikkei.com/atcl/nxt/column/18/00095/00022/)もあるくらい簡単
 - 事前設定してたらタスクバーからモバイルホットスポットを選択するだけ
 
-# MacでWiーFiテザリング
+# MacでWi-Fiテザリング
 パッと記事は見つからなかった記憶  
 Macbookでは本体内臓のアンテナでWi-Fiを受けてさらにAPとして動作することはできなさそうなので下記の対応
 - [Macに対応したUSBの子機](https://www.tp-link.com/jp/home-networking/adapter/archer-t2u-nano/)と[Type-C Plug to Type-A Receptacleの変換アダプタ](https://www.ainex.jp/products/u30ca-lfadt/)を組み合わせて2つめのWi-Fi接続を追加

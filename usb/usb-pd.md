@@ -24,8 +24,10 @@ CIOの充電器が手に入りやすくて高出力
 | :---: | :---: | ---: | :---: | ---: |
 | CIO | CIO-G100W3C1A | ¥7,678 | A1/C3 | 100W |
 
+### 持ってる
 - [CIO-G100W3C1A](https://connectinternationalone.co.jp/product/cio-g100w3c1a)  
-    100W対応の充電器の中でType-Cが一番多いもののはず。利用中
+    100W対応の充電器の中でType-Cが一番多いもののはず。利用中  
+    65W+30Wか45W+30W+18Wあたりで使える
 
 ## モバイルバッテリー
 60W overなもの

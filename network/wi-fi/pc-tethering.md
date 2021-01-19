@@ -16,3 +16,14 @@ Macbookでは本体内臓のアンテナでWi-Fiを受けてさらにAPとして
 
 ## Macの課題
 - 追加したEthernetアダプタで802.1X認証を設定する方法がわからないので[Secured Wi-Fi](https://support.ntt.com/ocn/support/pid2900000c7s)が共有できない
+    - 多分このプロファイルは標準のWi-Fiでのみ適用される
+    - TP-LINKのドライバでうまく802.1X EAPの接続ができないみたい？
+
+# 昔検討したこと
+モバイルAPみたいなものを使うことも考えた
+- [TL-WR902AC](https://www.tp-link.com/jp/home-networking/wifi-router/tl-wr902ac/)とか
+    - カフェとかの認証が必要な系統がうまく動かない
+- [Aterm W500P](https://www.aterm.jp/product/atermstation/product/warpstar/w500p/index.html)
+    - おそらく動くけど終売製品を今から手に入れるか？というところで断念
+
+結果、PCをテザリングする方向へ

@@ -15,9 +15,8 @@ Macbookでは本体内臓のアンテナでWi-Fiを受けてさらにAPとして
     - 上記とは逆のWi-Fiから追加したEthernetアダプタに共有するパターンはできない模様
 
 ## Macの課題
-- 追加したEthernetアダプタで802.1X認証を設定する方法がわからないので[Secured Wi-Fi](https://support.ntt.com/ocn/support/pid2900000c7s)が共有できない
-    - 多分このプロファイルは標準のWi-Fiでのみ適用される
-    - TP-LINKのドライバでうまく802.1X EAPの接続ができないみたい？
+- 追加したEthernetアダプタで[Secured Wi-Fi](https://support.ntt.com/ocn/support/pid2900000c7s)が接続できない
+    - TP-LINKのドライバにはEAP-TTLSに対応していなさそう？[参考](https://community.tp-link.com/en/home/forum/topic/175678)
 
 # 昔検討したこと
 モバイルAPみたいなものを使うことも考えた

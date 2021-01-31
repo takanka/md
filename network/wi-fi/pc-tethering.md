@@ -12,11 +12,13 @@ Macbookでは本体内臓のアンテナでWi-Fiを受けてさらにAPとして
 - [Macに対応したUSBの子機](https://www.tp-link.com/jp/home-networking/adapter/archer-t2u-nano/)と[Type-C Plug to Type-A Receptacleの変換アダプタ](https://www.ainex.jp/products/u30ca-lfadt/)を組み合わせて2つめのWi-Fi接続を追加
     - ちなみに逆のType-C Receptacle to Type-A Plugの方は[仕様違反](https://hanpenblog.com/6148)
 - インターネット共有で追加したEthernetアダプタを元にWi-Fiのデバイスで[共有](https://support.apple.com/ja-jp/guide/mac-help/mchlp1540/mac)
-    - 上記とは逆のWi-Fiから追加したEthernetアダプタに共有するパターンはできない模様
 
 ## Macの課題
 - 追加したEthernetアダプタで[Secured Wi-Fi](https://support.ntt.com/ocn/support/pid2900000c7s)が接続できない
     - TP-LINKのドライバにはEAP-TTLSに対応していなさそう？[参考](https://community.tp-link.com/en/home/forum/topic/175678)
+
+- 上記とは逆のWi-Fiから追加したEthernetアダプタに共有するパターンは本体のWi-Fiが802.1X認証のときにエラーになる模様？
+
 
 # 昔検討したこと
 モバイルAPみたいなものを使うことも考えた

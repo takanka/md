@@ -40,7 +40,8 @@ CIOの充電器が手に入りやすくて高出力
 
 ### 持ってる
 - RavPower [RP-PB058](https://www.ravpower.jp/shop/battery/large/type-c-large/rp-pb058_bk)  
-    結構昔に買った。合計出力が30Wなので力不足になりAnker 87Wにリプレース
+    結構昔に買った。合計出力が30Wなので力不足になりAnker 87Wにリプレース  
+    [パススルーに対応しているみたい](https://car-accessory-news.com/rp-pb058/)なのでなにかに使うかも
 - Anker [PowerCore III Elite 25600 87W](https://www.ankerjapan.com/item/A1291.html)  
     パススルー充電ができないのが少し惜しいけどコスパが良いのでいったんこれを使用
 

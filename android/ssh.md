@@ -29,7 +29,8 @@ Host hoge
 
 一応やろうと思えばそのまま接続対象にパスワード認証で入ってcatするのも手なんだけどそうしないでSDカードなどにコピー
 ```
-Settings → Storage → Files → Download → id_rsa.pubを長押し → Move to... → SDカードなど
+Settings → Storage → Files → Download
+→ id_rsa.pubを長押し → Move to... → SDカードなど
 ```
 
 winとかmacとかでid_rsa.pubを接続対象に持って行って

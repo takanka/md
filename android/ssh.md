@@ -6,7 +6,7 @@
 ```
 $ termux-setup-storage
 ```
-opensshをインストール
+opensshをインストールして鍵を作ってdownloadsにコピー
 ```
 $ apt update
 $ apt upgrade

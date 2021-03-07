@@ -1,6 +1,6 @@
 # androidからsshする
 
-ほぼ(これ)[https://qiita.com/class2glass/items/8ae0b34543a9e5d1ec2d]
+ほぼ[これ](https://qiita.com/class2glass/items/8ae0b34543a9e5d1ec2d)
 
 まずローカルのデータにアクセスできるようにする
 ```

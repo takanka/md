@@ -1,5 +1,7 @@
 # メモを残す場所
 
+- android系
+    - [androidからsshでつなげる](android/ssh.html)
 - [network系](network/)
     - [miktorikまわり](network/mikrotik/mikrotik.html)
         - [CRS354-48G-4S+2Q+RM](network/mikrotik/crs354_48g_4splus2qplusrm.md)
